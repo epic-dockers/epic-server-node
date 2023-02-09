@@ -38,5 +38,8 @@ RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
 #Add Epic to executable path
 RUN ln -s /root/epic-server/epic /usr/bin/epic
 
+#Link epic node log to docker container log
+RUN ln -sf /dev/stdout /root/.epic/main/epic-server.log
+
 #Entrypoint
 ENTRYPOINT ["/usr/local/bin/docker_entrypoint.sh"]
