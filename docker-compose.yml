@@ -1,0 +1,7 @@
+version: '3'
+services:
+  epic_node:
+    build: .
+    ports:
+      - "3414:3413"
+    
