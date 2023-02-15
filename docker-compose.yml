@@ -10,7 +10,3 @@ services:
       - "${NODE_PORT}:3413"
     volumes:
       - ${CHAIN_DATA_SRC}:${CHAIN_DATA_DEST}
-
-
-    
- 
