@@ -1,4 +1,11 @@
 FROM ubuntu:focal
+#Set Args for ENVs
+ARG CHAIN_DATA="true"
+# Set an environment variable for the volume path
+ENV CHAIN_DATA=${CHAIN_DATA}
+
+# Create the specified directory
+RUN mkdir -p /root/.epic/main/chain_data
 
 #Update and install dependencies
 RUN apt-get update \
@@ -17,15 +24,12 @@ RUN cd /root \
     && mv epiccash_E3_node-server_ubuntu epic-server \
     && chmod +x /root/epic-server/epic
 
-#Create DB root directories
-RUN mkdir -p /root/.epic/main
-
-#Copy chain_data
-RUN cd /root/epic-server \
+#Download and Copy chain_data if voume not mounted
+RUN if [ ${CHAIN_DATA} = "false" ]; then cd /root/epic-server \
     && wget https://epiccash.s3.sa-east-1.amazonaws.com/mainnet.zip \
     && unzip mainnet.zip \
     && rm mainnet.zip \
-    && mv chain_data /root/.epic/main/
+    && mv -f chain_data /root/.epic/main/ ; fi
 
 #Copy foundation.json and epic-server.toml file
 RUN cp /root/epic-server/foundation.json /root/.epic/main/foundation.json

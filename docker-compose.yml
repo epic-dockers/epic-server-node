@@ -1,0 +1,16 @@
+version: '3'
+services:
+  epic_node:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      args:
+        CHAIN_DATA: ${CHAIN_DATA}
+    ports:
+      - "${NODE_PORT}:3413"
+    volumes:
+      - ${CHAIN_DATA_SRC}:${CHAIN_DATA_DEST}
+
+
+    
+ 
