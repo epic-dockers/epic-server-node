@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
       args:
         CHAIN_DATA: ${CHAIN_DATA}
+        ARCH: ${ARCH}
     ports:
       - "${NODE_PORT}:3413"
     volumes:

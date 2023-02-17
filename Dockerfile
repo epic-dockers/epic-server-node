@@ -1,9 +1,10 @@
 FROM ubuntu:focal
 #Set Args for ENVs
 ARG CHAIN_DATA="true"
-# Set an environment variable for the volume path
+ARG ARCH="x86_64"
+# Set an environment variable for the volume path and Epic Node Arch
 ENV CHAIN_DATA=${CHAIN_DATA}
-
+ENV ARCH=${ARCH}
 # Create the specified directory
 RUN mkdir -p /root/.epic/main/chain_data
 
@@ -17,12 +18,10 @@ RUN apt-get update \
 RUN wget https://d1ftoepmu0es39.cloudfront.net/librandomx_1.0.0-3_amd64.deb \
     && dpkg -i librandomx_1.0.0-3_amd64.deb
 
-#Install epic-node
-RUN cd /root \
-    && wget https://dl.epic.tech/epiccash_E3_node-server_ubuntu.zip \
-    && unzip epiccash_E3_node-server_ubuntu.zip \
-    && mv epiccash_E3_node-server_ubuntu epic-server \
-    && chmod +x /root/epic-server/epic
+#Copy Epic Node file
+RUN mkdir /root/epic-server
+ADD epic-node-${ARCH} /root/epic-server/epic
+RUN chmod +x /root/epic-server/epic
 
 #Download and Copy chain_data if voume not mounted
 RUN if [ ${CHAIN_DATA} = "false" ]; then cd /root/epic-server \
@@ -32,7 +31,7 @@ RUN if [ ${CHAIN_DATA} = "false" ]; then cd /root/epic-server \
     && mv -f chain_data /root/.epic/main/ ; fi
 
 #Copy foundation.json and epic-server.toml file
-RUN cp /root/epic-server/foundation.json /root/.epic/main/foundation.json
+ADD foundation.json /root/.epic/main/foundation.json
 ADD epic-server.toml /root/.epic/main/epic-server.toml
 
 #Add docker entrypoint
