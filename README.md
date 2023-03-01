@@ -23,13 +23,13 @@ The epic node will now start running in  `http://localhost:3413`. you can get th
 
 Clone the code from the git repo. [Epic Node docker](https://gitlab.com/epic-cash1/epic-node-dockerisation)
 
-ENVs while building image:
-  Default ENVs:
-    1. CHAIN_DATA="true"
-    2. CHAIN_DATA_DEST="/root/.epic/main/chain_data"
-    3. CHAIN_DATA_SRC="~/.chain_data"
-    4. NODE_PORT="3413"
-    5. ARCH="x86_64"
+ENVs while building image: <br>
+  Default ENVs: <br>
+    1. CHAIN_DATA="true" <br>
+    2. CHAIN_DATA_DEST="/root/.epic/main/chain_data" <br>
+    3. CHAIN_DATA_SRC="~/.chain_data" 
+    4. NODE_PORT="3413" 
+    5. ARCH="x86_64"<br>
 
 Steps to build the image:
 
@@ -43,7 +43,7 @@ By default the image will not have chain_data, once the epic node is started it 
   ```sh
   ❯ docker compose up -d 
   ```
-  with this above command a docker container will be created without chain_data and the volume path mapped will be '~/.chain_data:/root/.epic/main/chain_data'
+  with this above command a docker container will be created without chain_data and the volume path mapped will be `~/.chain_data:/root/.epic/main/chain_data`
 
   i) you have two other options, If you have chain_data already downloaded, you can mount the directory in the `/root/.epic/main/chain_data` in case you want to access it on the host.
 
