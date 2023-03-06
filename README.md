@@ -20,8 +20,12 @@ This image contains the whole binaries from the Epic server package to run and s
 The epic node will now start running in  `http://localhost:3413`. you can get the status by calling the url  `http://localhost:3413/v1/status`.
 
 ## Building docker images with custom options:
-
+## Clone the repo:
 Clone the code from the git repo. [Epic Node docker](https://gitlab.com/epic-cash1/epic-node-dockerisation)
+
+```
+git clone https://gitlab.com/epic-cash1/epic-node-dockerisation/-/tree/main
+```
 
 ### ENVs while building image: <br>
   Default ENVs:
@@ -70,8 +74,8 @@ By default the image will not have chain_data, once the epic node is started it 
 
 ## Exposing ports:
 By default `3413` port from host will be mapped to the epic server port listening inside the conatiner which is `3413`. <br>
-if you have the port 3413 busy in host we can change the port number to listen in our host or it will be usefull if running multiple containers.
+if you have the port 3413 busy in host we can change the port number to listen in someother port on our host,eg.port 3414.
 
 ```sh
 ❯  NODE_PORT="3414"  docker compose up -d
- ```
+```
