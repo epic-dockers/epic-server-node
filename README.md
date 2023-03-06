@@ -19,17 +19,17 @@ This image contains the whole binaries from the Epic server package to run and s
 
 The epic node will now start running in  `http://localhost:3413`. you can get the status by calling the url  `http://localhost:3413/v1/status`.
 
-### Building docker images with custom options:
+## Building docker images with custom options:
 
 Clone the code from the git repo. [Epic Node docker](https://gitlab.com/epic-cash1/epic-node-dockerisation)
 
-ENVs while building image: <br>
+###ENVs while building image: <br>
   Default ENVs: <br>
-    1. CHAIN_DATA="true" <br>
-    2. CHAIN_DATA_DEST="/root/.epic/main/chain_data" <br>
-    3. CHAIN_DATA_SRC="~/.chain_data" 
-    4. NODE_PORT="3413" 
-    5. ARCH="x86_64"<br>
+    - CHAIN_DATA="true" <br>
+    - CHAIN_DATA_DEST="/root/.epic/main/chain_data" <br>
+    - CHAIN_DATA_SRC="~/.chain_data" 
+    - NODE_PORT="3413" 
+    - ARCH="x86_64"<br>
 
 Steps to build the image:
 
