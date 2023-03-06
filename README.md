@@ -68,4 +68,10 @@ By default the image will not have chain_data, once the epic node is started it 
   ❯  CHAIN_DATA="false" CHAIN_DATA_SRC="path_to_chaindata"  docker compose up -d
   ```
 
+## Exposing ports:
+By default `3413` port from host will be mapped to the epic server port listening inside the conatiner which is `3413`. <br>
+if you have the port 3413 busy in host we can change the port number to listen in our host or it will be usefull if running multiple containers.
 
+```sh
+❯  NODE_PORT="3414"  docker compose up -d
+ ```
