@@ -47,18 +47,25 @@ By default the image will not have chain_data, once the epic node is started it 
   ❯ docker compose up -d 
   ```
   with this above command a docker container will be created without chain_data and the volume path mapped will be `~/.chain_data:/root/.epic/main/chain_data`
+  
+  you have two other options
 
-  i) you have two other options, If you have chain_data already downloaded, you can mount the directory in the `/root/.epic/main/chain_data` in case you want to access it on the host.
+  -  If you have chain_data already downloaded, you can mount the chain_data into the `/root/.epic/main/chain_data` inside the container.It can be done by
 
   ```sh
   ❯ CHAIN_DATA_SRC="path_to_chaindata" docker compose up -d 
   ```
   with the above command the download chain_data is in the path "path_to_chaindata" which will be mapped to the chain_data directory inside the container.
 
-  ii) If you no need to download the chain_data in your host you have another option to make the docker compose do it for you.
+  - If you not having chain_data in your host you have another option to make the docker compose download and map it for you.
 
   ```sh
-❯  CHAIN_DATA="false" docker compose up -d
-```
+  ❯  CHAIN_DATA="false" docker compose up -d
+  ```
   In this command the chain_data will be download while building the image and then mapped to ~/.chain_data in your host.you can also provide custom chain_data directory to map
+
+  ```sh
+  ❯  CHAIN_DATA="false" CHAIN_DATA_SRC="path_to_chaindata"  docker compose up -d
+  ```
+
 
