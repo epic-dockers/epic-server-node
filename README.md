@@ -23,13 +23,14 @@ The epic node will now start running in  `http://localhost:3413`. you can get th
 
 Clone the code from the git repo. [Epic Node docker](https://gitlab.com/epic-cash1/epic-node-dockerisation)
 
-###ENVs while building image: <br>
-  Default ENVs: <br>
-    - CHAIN_DATA="true" <br>
-    - CHAIN_DATA_DEST="/root/.epic/main/chain_data" <br>
+### ENVs while building image: <br>
+  Default ENVs:
+
+    - CHAIN_DATA="true"
+    - CHAIN_DATA_DEST="/root/.epic/main/chain_data"
     - CHAIN_DATA_SRC="~/.chain_data" 
     - NODE_PORT="3413" 
-    - ARCH="x86_64"<br>
+    - ARCH="x86_64"
 
 Steps to build the image:
 
