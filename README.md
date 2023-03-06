@@ -32,6 +32,8 @@ Clone the code from the git repo. [Epic Node docker](https://gitlab.com/epic-cas
     - NODE_PORT="3413" 
     - ARCH="x86_64"
 
+you can edit the env's in the `.env` file or you can override the values at runtime.
+
 Steps to build the image:
 
 ```sh
