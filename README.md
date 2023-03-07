@@ -21,10 +21,10 @@ The epic node will now start running in  `http://localhost:3413`. you can get th
 
 ## Building docker images with custom options:
 ## Clone the repo:
-Clone the code from the git repo. [Epic Node docker](https://gitlab.com/epic-cash1/epic-node-dockerisation)
+Clone the code from the git repo. [Epic Node docker](https://github.com/epic-dockers/epic-server-node.git)
 
 ```
-git clone https://gitlab.com/epic-cash1/epic-node-dockerisation.git
+git clone https://github.com/epic-dockers/epic-server-node.git
 ```
 
 ### ENVs while building image: <br>
